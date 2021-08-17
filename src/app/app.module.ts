@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QaBeComponent } from './qa-be/qa-be.component';
-import { QaFeComponent } from './qa-fe/qa-fe.component';
+import { QaBeComponent } from './pages/option1/qa-be/qa-be.component';
+import { QaFeComponent } from './pages/option1/qa-fe/qa-fe.component';
+import { Option1Component } from './pages/option1/option1.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     QaBeComponent,
-    QaFeComponent
+    QaFeComponent,
+    Option1Component
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,13 @@
-<a [routerLink]="['/qa_fe']">進入常見問題</a>
-<router-outlet></router-outlet>
-
+<div class="index">
+  <ul class="menu">
+    <li>
+      <a [routerLink]="['/home']">首頁</a>
+    </li>
+    <li>
+      <a [routerLink]="['/option1']">大項目</a>
+    </li>
+  </ul>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
