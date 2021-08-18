@@ -1,23 +1,28 @@
+import { ShareModule } from './share/share/share.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QaBeComponent } from './pages/option1/qa-be/qa-be.component';
-import { QaFeComponent } from './pages/option1/qa-fe/qa-fe.component';
-import { Option1Component } from './pages/option1/option1.component';
+import { QuestionFeComponent } from './pages/question-fe/question-fe.component';
+import { QuestionBeComponent } from './pages/question-be/question-be.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    QaBeComponent,
-    QaFeComponent,
-    Option1Component
+    QuestionFeComponent,
+    QuestionBeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]

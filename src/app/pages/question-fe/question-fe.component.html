@@ -1,0 +1,47 @@
+<div class="container">
+  <div class=" py-2">
+    <h2 class="text-blue-500 text-2xl">前台</h2>
+  </div>
+  <hr>
+
+  <form class="flex">
+    <select>
+      <option value="">上層分類選單</option>
+      <option value=""></option>
+    </select>
+
+    <select>
+      <option value="">問題母分類</option>
+      <option value=""></option>
+    </select>
+
+    <select>
+      <option value="">問題子分類</option>
+      <option value=""></option>
+    </select>
+
+    <label>
+      <input type="text" placeholder="關鍵字">
+    </label>
+    <div class="flex justify-around">
+      <button type="button" class="p-2 bg-yellow-500 text-gray-700 rounded">查詢</button>
+      <button type="button" class="py-2 px-3 bg-blue-500 text-white rounded">新增</button>
+    </div>
+  </form>
+
+  <ul class="nav">
+    <li>
+      <a href="javascript:void(0)"><i class="fas fa-sitemap"></i>個人金融</a>
+      <!-- 這邊加上子層選單 -->
+      <ul>
+        <li>
+          <a href="javascript:void(0)">存款</a>
+          <ul>
+            <li><a href="javascript:void(0)">金融卡</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QaFeComponent } from './qa-fe.component';
+import { QuestionBeComponent } from './question-be.component';
 
-describe('QaFeComponent', () => {
-  let component: QaFeComponent;
-  let fixture: ComponentFixture<QaFeComponent>;
+describe('QuestionBeComponent', () => {
+  let component: QuestionBeComponent;
+  let fixture: ComponentFixture<QuestionBeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QaFeComponent ]
+      declarations: [ QuestionBeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QaFeComponent);
+    fixture = TestBed.createComponent(QuestionBeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
