@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-question-be',
   templateUrl: './question-be.component.html',
-  styleUrls: ['./question-be.component.scss']
+  styleUrls: ['./question-be.component.scss'],
 })
 export class QuestionBeComponent implements OnInit {
-
   formFe!: FormGroup;
   constructor(private _fb: FormBuilder) {}
 
@@ -58,6 +57,8 @@ export class QuestionBeComponent implements OnInit {
       value: '子分類03',
     },
   ];
+
+  //*table fakeData
 
   ngOnInit(): void {
     this.createForm();
