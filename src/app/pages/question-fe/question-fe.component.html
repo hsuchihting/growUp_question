@@ -1,47 +1,42 @@
 <div class="container">
-  <div class=" py-2">
+  <div class="py-2">
     <h2 class="text-blue-500 text-2xl">前台</h2>
   </div>
-  <hr>
+  <hr />
 
-  <form class="flex">
-    <select>
-      <option value="">上層分類選單</option>
-      <option value=""></option>
-    </select>
+  <form class="flex justify-around">
+    <mat-select>
+      <mat-option value="">上層分類選單</mat-option>
+      <mat-option value=""></mat-option>
+    </mat-select>
 
-    <select>
-      <option value="">問題母分類</option>
-      <option value=""></option>
-    </select>
+    <mat-select>
+      <mat-option value="">問題母分類</mat-option>
+      <mat-option value=""></mat-option>
+    </mat-select>
 
-    <select>
-      <option value="">問題子分類</option>
-      <option value=""></option>
-    </select>
+    <mat-select>
+      <mat-option value="">問題子分類</mat-option>
+      <mat-option value=""></mat-option>
+    </mat-select>
 
-    <label>
-      <input type="text" placeholder="關鍵字">
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>搜尋關鍵字</mat-label>
+      <input matInput placeholder="請輸入關鍵字" />
+    </mat-form-field>
+
     <div class="flex justify-around">
-      <button type="button" class="p-2 bg-yellow-500 text-gray-700 rounded">查詢</button>
-      <button type="button" class="py-2 px-3 bg-blue-500 text-white rounded">新增</button>
+      <button mat-raised-button color="primary">查詢</button>
+      <button mat-raised-button color="accent">新增</button>
     </div>
   </form>
 
-  <ul class="nav">
-    <li>
-      <a href="javascript:void(0)"><i class="fas fa-sitemap"></i>個人金融</a>
-      <!-- 這邊加上子層選單 -->
-      <ul>
-        <li>
-          <a href="javascript:void(0)">存款</a>
-          <ul>
-            <li><a href="javascript:void(0)">金融卡</a></li>
+  <button mat-button [matMenuTriggerFor]="animals">個人金融</button>
+  <mat-menu #animals="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">存款</button>
+  </mat-menu>
 
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <mat-menu #vertebrates="matMenu">
+    <button mat-menu-item>金融卡</button>
+  </mat-menu>
 </div>
