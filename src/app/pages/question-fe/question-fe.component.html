@@ -4,39 +4,55 @@
   </div>
   <hr />
 
-  <form class="flex justify-around">
-    <mat-select>
-      <mat-option value="">上層分類選單</mat-option>
-      <mat-option value=""></mat-option>
+  <form class="flex justify-around" [formGroup]="formFe">
+    <mat-select formControlName="firstSelect" class="px-2">
+      <mat-option value="" disabled>上層分類選單</mat-option>
+      <mat-option
+        [id]="item.key"
+        [value]="item.key"
+        *ngFor="let item of firstSelectData"
+      >
+        {{ item.value }}
+      </mat-option>
     </mat-select>
 
-    <mat-select>
-      <mat-option value="">問題母分類</mat-option>
-      <mat-option value=""></mat-option>
+    <mat-select formControlName="secondSelect">
+      <mat-option value="" disabled>問題母分類</mat-option>
+      <mat-option
+        [id]="item.key"
+        [value]="item.key"
+        *ngFor="let item of secondSelectData"
+      ></mat-option>
     </mat-select>
 
-    <mat-select>
-      <mat-option value="">問題子分類</mat-option>
-      <mat-option value=""></mat-option>
+    <mat-select formControlName="thirdSelect">
+      <mat-option value="" disabled> 問題子分類</mat-option>
+      <mat-option
+        [id]="item.key"
+        [value]="item.key"
+        *ngFor="let item of thirdSelectData"
+      ></mat-option>
     </mat-select>
 
     <mat-form-field class="example-full-width">
       <mat-label>搜尋關鍵字</mat-label>
-      <input matInput placeholder="請輸入關鍵字" />
+      <input matInput placeholder="請輸入關鍵字" formControlName="input" />
     </mat-form-field>
 
-    <div class="flex justify-around">
-      <button mat-raised-button color="primary">查詢</button>
-      <button mat-raised-button color="accent">新增</button>
+    <div class="flex">
+      <button mat-raised-button color="primary" (click)="search()">查詢</button>
+      <button mat-raised-button color="accent" (click)="add()">新增</button>
     </div>
   </form>
 
-  <button mat-button [matMenuTriggerFor]="animals">個人金融</button>
-  <mat-menu #animals="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="vertebrates">存款</button>
-  </mat-menu>
+  <div class="bg-yellow-500 w-full">
+    <button mat-button [matMenuTriggerFor]="personal">個人金融</button>
+    <mat-menu #personal="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="deposit">存款</button>
+    </mat-menu>
 
-  <mat-menu #vertebrates="matMenu">
-    <button mat-menu-item>金融卡</button>
-  </mat-menu>
+    <mat-menu #deposit="matMenu">
+      <button mat-menu-item>金融卡</button>
+    </mat-menu>
+  </div>
 </div>

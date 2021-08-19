@@ -1,3 +1,4 @@
+import { QuestionDetailComponent } from './pages/question-detail/question-detail.component';
 import { QuestionBeComponent } from './pages/question-be/question-be.component';
 import { QuestionFeComponent } from './pages/question-fe/question-fe.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'questionBe',
     component: QuestionBeComponent,
+  },
+  {
+    path:'question-detail',
+    component:QuestionDetailComponent
+
   },
   {
     path: '**',

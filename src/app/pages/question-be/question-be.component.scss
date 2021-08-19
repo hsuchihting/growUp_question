@@ -1,0 +1,14 @@
+$primary: #3b82f6;
+
+.container {
+  padding: 3%;
+  form {
+    display: flex;
+    justify-content: space-around;
+    mat-select,
+    mat-form-field {
+      margin-right: 1%;
+      background-color: #fff;
+    }
+  }
+}
