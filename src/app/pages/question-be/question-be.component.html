@@ -5,24 +5,33 @@
 <form class="form" [formGroup]="formFe">
   <select formControlName="firstSelect">
     <option value="" disabled>上層分類選單</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of firstSelectData">
+    <option
+      [id]="item.key"
+      [value]="item.key"
+      *ngFor="let item of firstSelectData"
+    >
       {{ item.value }}
     </option>
   </select>
 
   <select formControlName="secondSelect">
     <option value="" disabled>問題母分類</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of secondSelectData">
+    <option
+      [id]="item.key"
+      [value]="item.key"
+      *ngFor="let item of secondSelectData"
+    >
       {{ item.value }}
     </option>
   </select>
 
   <select formControlName="thirdSelect">
     <option value="" disabled>問題子分類</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of thirdSelectData">
+    <option
+      [id]="item.key"
+      [value]="item.key"
+      *ngFor="let item of thirdSelectData"
+    >
       {{ item.value }}
     </option>
   </select>
@@ -35,25 +44,24 @@
     <option value="2">審核中</option>
     <option value="3">已審核</option>
   </select>
-
 </form>
 
-<div class="timeGroup">
-  <mat-form-field appearance="fill">
-    <mat-label>起始日</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<form class="time">
+  <div class="timeGroup">
+    <mat-form-field appearance="fill">
+      <mat-label>起始日</mat-label>
+      <input matInput [matDatepicker]="sDate" />
+      <mat-datepicker-toggle matSuffix [for]="sDate"></mat-datepicker-toggle>
+      <mat-datepicker #sDate></mat-datepicker>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>結束日</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-
+    <mat-form-field appearance="fill">
+      <mat-label>結束日</mat-label>
+      <input matInput [matDatepicker]="eDate" />
+      <mat-datepicker-toggle matSuffix [for]="eDate"></mat-datepicker-toggle>
+      <mat-datepicker #eDate></mat-datepicker>
+    </mat-form-field>
+  </div>
 
   <div class="btnGroup">
     <button type="button" class="btn btn-search" (click)="search()">
@@ -61,23 +69,27 @@
     </button>
     <button type="button" class="btn btn-add" (click)="add()">新增</button>
   </div>
-</div>
-
+</form>
 
 <table>
   <thead>
     <tr>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
+      <th>功能</th>
+      <th>順序</th>
+      <th>標題</th>
+      <th>審核狀態</th>
+      <th>上架日期</th>
+      <th>下架日期</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>11</td>
+      <td>
+        <div class="feature">
+          <button type="button" class="btn btn-edit">編輯</button>
+          <button type="button" class="btn btn-delete">刪除</button>
+        </div>
+      </td>
       <td>22</td>
       <td>33</td>
       <td>44</td>
