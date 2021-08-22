@@ -1,38 +1,38 @@
-<h2 class="title">後台</h2>
+<h2 class="title">常見問題設定</h2>
 
 <hr />
 
-<form class="form" [formGroup]="formFe">
-  <select formControlName="firstSelect">
+<form class="form" [formGroup]="formBe">
+  <select formControlName="firstSelect" (change)="getSecondDropdown()">
     <option value="" disabled>上層分類選單</option>
     <option
-      [id]="item.key"
-      [value]="item.key"
+      [id]="item.id"
+      [value]="item.id"
       *ngFor="let item of firstSelectData"
     >
-      {{ item.value }}
+      {{ item.firstgroupname }}
     </option>
   </select>
 
-  <select formControlName="secondSelect">
+  <select formControlName="secondSelect" (change)="getThirdDropdown()">
     <option value="" disabled>問題母分類</option>
     <option
-      [id]="item.key"
-      [value]="item.key"
+      [id]="item.secondID"
+      [value]="item.secondID"
       *ngFor="let item of secondSelectData"
     >
-      {{ item.value }}
+      {{ item.secondgroupname }}
     </option>
   </select>
 
   <select formControlName="thirdSelect">
     <option value="" disabled>問題子分類</option>
     <option
-      [id]="item.key"
-      [value]="item.key"
+      [id]="item.thirdID"
+      [value]="item.thirdID"
       *ngFor="let item of thirdSelectData"
     >
-      {{ item.value }}
+      {{ item.thirdgroupname }}
     </option>
   </select>
 
@@ -40,9 +40,9 @@
 
   <select formControlName="thirdSelect">
     <option value="" disabled>審核狀態</option>
+    <option value="0">已審核</option>
     <option value="1">未審核</option>
     <option value="2">審核中</option>
-    <option value="3">已審核</option>
   </select>
 </form>
 
@@ -71,30 +71,34 @@
   </div>
 </form>
 
-<table>
-  <thead>
-    <tr>
-      <th>功能</th>
-      <th>順序</th>
-      <th>標題</th>
-      <th>審核狀態</th>
-      <th>上架日期</th>
-      <th>下架日期</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="feature">
-          <button type="button" class="btn btn-edit">編輯</button>
-          <button type="button" class="btn btn-delete">刪除</button>
-        </div>
-      </td>
-      <td>22</td>
-      <td>33</td>
-      <td>44</td>
-      <td>55</td>
-      <td>66</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">功能</th>
+        <th scope="col">順序</th>
+        <th scope="col">標題</th>
+        <th scope="col">審核狀態</th>
+        <th scope="col">上架日期</th>
+        <th scope="col">下架日期</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="feature">
+            <button type="button" class="btn btn-edit" (click)="edit()">
+              編輯
+            </button>
+            <button type="button" class="btn btn-delete">刪除</button>
+          </div>
+        </td>
+        <td>22</td>
+        <td>33</td>
+        <td>44</td>
+        <td>55</td>
+        <td>66</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

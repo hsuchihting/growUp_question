@@ -1,29 +1,38 @@
-<h2 class="title">前台</h2>
+<h2 class="title">常見問題分類設定</h2>
 
 <hr />
 
 <form class="form" [formGroup]="formFe">
-  <select formControlName="firstSelect">
+  <select formControlName="firstSelect" (change)="getSecondDropdown()">
     <option value="" disabled>上層分類選單</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of firstSelectData">
-      {{ item.value }}
+    <option
+      [id]="item.id"
+      [value]="item.id"
+      *ngFor="let item of firstSelectData"
+    >
+      {{ item.firstgroupname }}
     </option>
   </select>
 
-  <select formControlName="secondSelect">
+  <select formControlName="secondSelect" (change)="getThirdDropdown()">
     <option value="" disabled>問題母分類</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of secondSelectData">
-      {{ item.value }}
+    <option
+      [id]="item.secondID"
+      [value]="item.secondID"
+      *ngFor="let item of secondSelectData"
+    >
+      {{ item.secondgroupname }}
     </option>
   </select>
 
   <select formControlName="thirdSelect">
     <option value="" disabled>問題子分類</option>
-    <option [id]="item.key" [value]="item.key"
-      *ngFor="let item of thirdSelectData">
-      {{ item.value }}
+    <option
+      [id]="item.thirdID"
+      [value]="item.thirdID"
+      *ngFor="let item of thirdSelectData"
+    >
+      {{ item.thirdgroupname }}
     </option>
   </select>
 
@@ -37,25 +46,22 @@
   </div>
 </form>
 
-
 <ul class="nav">
-  <li>
-    <span>
-      個人金融
-    </span>
-    <ul>
-      <li><span>
-          存款
-        </span>
-        <ul>
-          <li>
-            <span>
-              信用卡
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <ng-container *ngFor="let row of getMenuData | keyvalue">
+    {{ row.value | json }}
 
+    <li>
+      <span> 個人金融 </span>
+      <ul>
+        <li>
+          <span> 存款 </span>
+          <ul>
+            <li (click)="detail()">
+              <span> 信用卡 </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ng-container>
 </ul>

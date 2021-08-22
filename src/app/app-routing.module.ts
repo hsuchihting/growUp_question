@@ -1,3 +1,5 @@
+import { EditCaseComponent } from './pages/edit-case/edit-case.component';
+import { AddCaseComponent } from './pages/add-case/add-case.component';
 import { QuestionDetailComponent } from './pages/question-detail/question-detail.component';
 import { QuestionBeComponent } from './pages/question-be/question-be.component';
 import { QuestionFeComponent } from './pages/question-fe/question-fe.component';
@@ -19,9 +21,16 @@ const routes: Routes = [
     component: QuestionBeComponent,
   },
   {
-    path:'question-detail',
-    component:QuestionDetailComponent
-
+    path: 'question-detail',
+    component: QuestionDetailComponent,
+  },
+  {
+    path: 'add-case',
+    component: AddCaseComponent,
+  },
+  {
+    path: 'edit-case',
+    component: EditCaseComponent,
   },
   {
     path: '**',

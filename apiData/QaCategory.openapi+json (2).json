@@ -1,0 +1,739 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "QaCategory",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://qatest.azure-api.net"
+        }
+    ],
+    "paths": {
+        "/api/Groups/CreateGroup": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "新增群組",
+                "description": "新增群組",
+                "operationId": "post-api-groups-creategroup",
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GroupItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "firstgroupname": "string",
+                                "secondID": "string",
+                                "secondgroupname": "string",
+                                "thirdID": "string",
+                                "thirdgroupname": "string"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GroupItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "firstgroupname": "string",
+                                "secondID": "string",
+                                "secondgroupname": "string",
+                                "thirdID": "string",
+                                "thirdgroupname": "string"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GroupItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "firstgroupname": "string",
+                                "secondID": "string",
+                                "secondgroupname": "string",
+                                "thirdID": "string",
+                                "thirdgroupname": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetMenu": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "取得群組清單",
+                "description": "取得群組清單",
+                "operationId": "get-api-groups-getmenu",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/CreatSubject": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "新增群組內問與答",
+                "description": "新增群組內問與答",
+                "operationId": "post-api-groups-creatsubject",
+                "parameters": [
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetSubjectPage": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Loading特定群組問與答",
+                "description": "Loading特定群組問與答",
+                "operationId": "get-api-groups-getsubjectpage",
+                "parameters": [
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/EditSubject": {
+            "patch": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "編輯問與答",
+                "description": "編輯問與答",
+                "operationId": "patch-api-groups-editsubject",
+                "parameters": [
+                    {
+                        "name": "thirdname",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subjectID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/subjectItem"
+                            },
+                            "example": {
+                                "id": "string",
+                                "sequence": 0,
+                                "subject": "string",
+                                "release_date": "string",
+                                "estimate_invalid_date": "string",
+                                "question": "string",
+                                "answer": "string",
+                                "creditStatus": 0
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/DeleteSubject": {
+            "delete": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "刪除問與答",
+                "description": "刪除問與答",
+                "operationId": "delete-api-groups-deletesubject",
+                "parameters": [
+                    {
+                        "name": "subjectID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetSearchPage": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "搜尋(Loading所有資料)",
+                "description": "搜尋(Loading所有資料)",
+                "operationId": "get-api-groups-getsearchpage",
+                "parameters": [
+                    {
+                        "name": "firstID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "secondID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchstring",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "creditstatus",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetPage": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "搜尋(換頁打一次API)",
+                "description": "搜尋(換頁打一次API)",
+                "operationId": "get-api-groups-getpage",
+                "parameters": [
+                    {
+                        "name": "firstID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "secondID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchstring",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "creditstatus",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/UserSubject/GetUserPage": {
+            "get": {
+                "tags": [
+                    "UserSubject"
+                ],
+                "summary": "取得特定群組內問與答",
+                "description": "取得特定群組內問與答",
+                "operationId": "get-api-usersubject-getuserpage",
+                "parameters": [
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/UserSubject/GetUserSearchPage": {
+            "get": {
+                "tags": [
+                    "UserSubject"
+                ],
+                "summary": "搜尋功能(每換頁打一次API)",
+                "description": "搜尋功能(每換頁打一次API)",
+                "operationId": "get-api-usersubject-getusersearchpage",
+                "parameters": [
+                    {
+                        "name": "firstID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "secondID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchstring",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "creditstatus",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/WeatherForecast": {
+            "get": {
+                "tags": [
+                    "WeatherForecast"
+                ],
+                "summary": "/WeatherForecast - GET",
+                "operationId": "get-weatherforecast",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WeatherForecastArray"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WeatherForecastArray"
+                                },
+                                "example": [
+                                    {
+                                        "date": "string",
+                                        "temperatureC": 0,
+                                        "temperatureF": 0,
+                                        "summary": "string"
+                                    }
+                                ]
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WeatherForecastArray"
+                                },
+                                "example": [
+                                    {
+                                        "date": "string",
+                                        "temperatureC": 0,
+                                        "temperatureF": 0,
+                                        "summary": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Groups/DeleteGroup": {
+            "delete": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "刪除群組",
+                "description": "刪除群組",
+                "operationId": "delete-api-groups-deletegroup",
+                "parameters": [
+                    {
+                        "name": "thirdID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetFirstCategory": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "/api/Groups/GetFirstCategory - POST",
+                "operationId": "post-api-groups-getfirstcategory",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetSecondCategory": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "/api/Groups/GetSecondCategory - POST",
+                "operationId": "post-api-groups-getsecondcategory",
+                "parameters": [
+                    {
+                        "name": "firstID",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Groups/GetThirdCategory": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "/api/Groups/GetThirdCategory - POST",
+                "operationId": "post-api-groups-getthirdcategory",
+                "parameters": [
+                    {
+                        "name": "secondID",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GroupItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "firstgroupname": {
+                        "type": "string"
+                    },
+                    "secondID": {
+                        "type": "string"
+                    },
+                    "secondgroupname": {
+                        "type": "string"
+                    },
+                    "thirdID": {
+                        "type": "string"
+                    },
+                    "thirdgroupname": {
+                        "type": "string"
+                    }
+                }
+            },
+            "creditStatusEnum": {
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "subjectItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "sequence": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "subject": {
+                        "type": "string"
+                    },
+                    "release_date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "estimate_invalid_date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "question": {
+                        "type": "string"
+                    },
+                    "answer": {
+                        "type": "string"
+                    },
+                    "creditStatus": {
+                        "$ref": "#/components/schemas/creditStatusEnum"
+                    }
+                }
+            },
+            "WeatherForecast": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "temperatureF": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "summary": {
+                        "type": "string"
+                    }
+                }
+            },
+            "WeatherForecastArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                }
+            }
+        }
+    }
+}

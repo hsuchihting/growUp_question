@@ -1,0 +1,51 @@
+$primary: #3b82f6;
+
+h2 {
+  color: $primary;
+  font-size: 24px;
+  padding-bottom: 2%;
+}
+
+.btn {
+  text-align: center;
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  &:hover {
+    background: darken($primary, 10%);
+  }
+}
+
+.form {
+  width: 100%;
+  .block {
+    display: block;
+    margin-bottom: 2%;
+    span {
+      margin-right: 2%;
+    }
+    select,
+    .title {
+      margin-right: 1%;
+      background-color: #fff;
+      width: 100%;
+      height: 44px;
+      padding-left: 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

@@ -10,9 +10,11 @@ import { QuestionBeComponent } from './pages/question-be/question-be.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionDetailComponent } from './pages/question-detail/question-detail.component';
+import { AddCaseComponent } from './pages/add-case/add-case.component';
+import { EditCaseComponent } from './pages/edit-case/edit-case.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestionFeComponent, QuestionBeComponent, QuestionDetailComponent],
+  declarations: [AppComponent, QuestionFeComponent, QuestionBeComponent, QuestionDetailComponent, AddCaseComponent, EditCaseComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

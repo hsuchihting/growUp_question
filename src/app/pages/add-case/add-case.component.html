@@ -1,0 +1,63 @@
+<h2>新增項目</h2>
+<hr />
+<form class="form">
+  <div class="block">
+    <label>
+      <span>上層分類</span>
+      <select>
+        <option value="" disabled>請選擇上層分類</option>
+        <option value=""></option>
+      </select>
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>母分類</span>
+      <select>
+        <option value="" disabled>請選擇母分類</option>
+        <option value=""></option>
+      </select>
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>子分類</span>
+      <select>
+        <option value="" disabled>請選擇子分類</option>
+        <option value=""></option>
+      </select>
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>標題</span>
+      <input type="text" placeholder="請輸入標題" class="title" />
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>審核狀態</span>
+      <select disabled>
+        <option value="1">未審核</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span> 上架日期 </span>
+      <mat-form-field appearance="fill">
+        <mat-label>起始日</mat-label>
+        <input matInput [matDatepicker]="sDate" />
+        <mat-datepicker-toggle matSuffix [for]="sDate"></mat-datepicker-toggle>
+        <mat-datepicker #sDate></mat-datepicker>
+      </mat-form-field>
+    </label>
+  </div>
+</form>
+
+<button type="button" class="btn btn-primary" (click)="save()">儲存</button>
