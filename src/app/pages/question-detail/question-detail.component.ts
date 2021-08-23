@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,11 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-detail.component.scss'],
 })
 export class QuestionDetailComponent implements OnInit {
-  constructor() {}
+  constructor(private _fb: FormBuilder, private _route: Router) {}
+  detailForm!: FormGroup;
+  ngOnInit(): void {
+    this.createForm();
+  }
 
-  ngOnInit(): void {}
+  createForm() {
+    this.detailForm = this._fb.group({
+      thirdSelect: '',
+      keyword: '',
+    });
+  }
 
+  search(){
+    alert('search')
+  }
   goBack() {
-    history.go(-1);
+    window.history.go(-1);
   }
 }

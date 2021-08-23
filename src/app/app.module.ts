@@ -12,9 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { QuestionDetailComponent } from './pages/question-detail/question-detail.component';
 import { AddCaseComponent } from './pages/add-case/add-case.component';
 import { EditCaseComponent } from './pages/edit-case/edit-case.component';
+import { AddTypeComponent } from './pages/add-type/add-type.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestionFeComponent, QuestionBeComponent, QuestionDetailComponent, AddCaseComponent, EditCaseComponent],
+  declarations: [AppComponent, QuestionFeComponent, QuestionBeComponent, QuestionDetailComponent, AddCaseComponent, EditCaseComponent, AddTypeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

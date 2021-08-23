@@ -1,0 +1,32 @@
+<h2>新增分類</h2>
+<hr />
+<form class="form" [formGroup]="addTypeForm">
+  <div class="block">
+    <label>
+      <span>上層分類</span>
+      <input type="text" formControlName="firstgroupname" />
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>母分類</span>
+      <label>
+        <span>上層分類</span>
+        <input type="text" formControlName="secondgroupname" />
+      </label>
+    </label>
+  </div>
+
+  <div class="block">
+    <label>
+      <span>子分類</span>
+      <label>
+        <span>上層分類</span>
+        <input type="text" formControlName="thirdgroupname" />
+      </label>
+    </label>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="save()">儲存</button>
+</form>

@@ -1,14 +1,14 @@
 <h2 class="title">常見問題</h2>
 
-<form>
-  <select>
+<form [formGroup]="detailForm">
+  <select formControlName="thirdSelect">
     <option value="" disabled>請選擇子分類</option>
     <option value=""></option>
   </select>
 
-  <input type="text" placeholder="關鍵字" />
+  <input type="text" placeholder="關鍵字" formControlName="keyword" />
 
-  <button type="button" class="btn btn-primary">查詢</button>
+  <button type="button" class="btn btn-primary" (click)="search()">查詢</button>
   <button type="button" class="btn btn-secondary" (click)="goBack()">
     回前頁
   </button>

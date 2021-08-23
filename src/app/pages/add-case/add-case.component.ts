@@ -5,9 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   CreateSubjectRequest,
   GetFirstCategoryResponse,
-  GetSecondCategoryRequest,
   GetSecondCategoryResponse,
-  GetThirdCategoryRequest,
   GetThirdCategoryResponse,
 } from 'src/app/model/createGroup-model';
 
@@ -73,9 +71,17 @@ export class AddCaseComponent implements OnInit {
   }
 
   save() {
-    let param = this.addForm.get('thirdSelect')?.value;
+    let thirdId = this.addForm.get('thirdSelect')?.value;
+    let subject = this.addForm.get('title')?.value;
+    let creditStatus = Number(this.addForm.get('audit')?.value);
+    let answer = this.addForm.get('answer')?.value;
+
     let req: CreateSubjectRequest = {
-      thirdID: param,
+      subject: subject,
+      thirdID: thirdId,
+      creditStatus: creditStatus,
+      question: subject,
+      answer: answer,
     };
     this._http.createSubject(req).subscribe(
       (res) => {

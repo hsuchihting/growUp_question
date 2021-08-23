@@ -52,16 +52,13 @@ export interface GetMenuThirdRes {
 }
 
 //*新增群組內問與答
-export interface CreateSubjectRequest {
-  thirdID: string;
-}
-
-export interface CreateSubjectResponse {
-  id: string;
-  sequence: number;
+export interface CreateSubjectRequest{
+  id?: string;
+  sequence?: number;
   subject: string;
-  release_date: string;
-  estimate_invalid_date: string;
+  thirdID: string;
+  release_date?: string;
+  estimate_invalid_date?: string;
   question: string;
   answer: string;
   creditStatus: number;

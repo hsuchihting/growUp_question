@@ -5,13 +5,10 @@ import { Router } from '@angular/router';
 import {
   GetFirstCategoryResponse,
   GetMenuRes,
-  GetSecondCategoryRequest,
   GetSecondCategoryResponse,
-  GetThirdCategoryRequest,
   GetThirdCategoryResponse,
 } from 'src/app/model/createGroup-model';
-import { groupBy } from 'lodash';
-import * as _ from 'lodash';
+
 @Component({
   selector: 'app-question-fe',
   templateUrl: './question-fe.component.html',
@@ -73,15 +70,11 @@ export class QuestionFeComponent implements OnInit {
     });
   }
 
-
-
   getMenu() {
     this._http.getMenu().subscribe((res) => {
       Object.values(res).forEach((item) => {
         this.getMenuData = item;
       });
-
-      console.log('getMenuData', this.getMenuData);
     });
   }
   search() {
@@ -89,7 +82,7 @@ export class QuestionFeComponent implements OnInit {
   }
 
   add() {
-    alert('add');
+    this._router.navigate(['/add-type']);
   }
 
   detail() {

@@ -1,3 +1,4 @@
+import { AddTypeComponent } from './pages/add-type/add-type.component';
 import { EditCaseComponent } from './pages/edit-case/edit-case.component';
 import { AddCaseComponent } from './pages/add-case/add-case.component';
 import { QuestionDetailComponent } from './pages/question-detail/question-detail.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'add-case',
     component: AddCaseComponent,
+  },
+  {
+    path: 'add-type',
+    component: AddTypeComponent,
   },
   {
     path: 'edit-case',

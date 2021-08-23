@@ -1,4 +1,4 @@
-<h2>新增項目</h2>
+<h2>新增問答</h2>
 <hr />
 <form class="form" [formGroup]="addForm">
   <div class="block">
@@ -77,23 +77,6 @@
     </label>
   </div>
 
-  <!-- <div class="block">
-    <label>
-      <span> 上架日期 </span>
-      <mat-form-field appearance="fill">
-        <mat-label>起始日</mat-label>
-        <input
-        class="form-control"
-        matInput
-        [matDatepicker]="startPicker"
-        formControlName="date"
-        placeholder="年/月/日"
-    />
-    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-    <mat-datepicker touchUi #startPicker></mat-datepicker>
-      </mat-form-field>
-    </label>
-  </div> -->
 </form>
 
 <button type="button" class="btn btn-primary" (click)="save()">儲存</button>

@@ -40,7 +40,9 @@ export class HttpService {
 
   //*下拉子分類
   GetThirdCategory(param: string): Observable<any> {
-    return this._http.get(`${this.apiUrl}/Groups/GetThirdCategory?secondID=${param}`);
+    return this._http.get(
+      `${this.apiUrl}/Groups/GetThirdCategory?secondID=${param}`
+    );
   }
 
   //*新增群組
@@ -74,4 +76,13 @@ export class HttpService {
   searchPage() {
     return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`);
   }
+
+  //*新增群組內問與答
+  getSubjectPage(param: string) {
+    return this._http.get(
+      `${this.apiUrl}/Groups/GetSubjectPage=?thirdID=${param}`
+    );
+  }
+
+
 }
