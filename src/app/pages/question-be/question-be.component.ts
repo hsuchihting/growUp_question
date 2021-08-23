@@ -62,11 +62,8 @@ export class QuestionBeComponent implements OnInit {
 
   getSecondDropdown() {
     let firstId = this.formBe.get('firstSelect')?.value;
-    let req: GetSecondCategoryRequest = {
-      firstID: firstId,
-    };
     if (firstId) {
-      this._http.GetSecondCategory(req).subscribe((res) => {
+      this._http.GetSecondCategory().subscribe((res) => {
         console.log('secondSelectData:', res);
         this.secondSelectData = res;
       });
@@ -75,13 +72,12 @@ export class QuestionBeComponent implements OnInit {
 
   getThirdDropdown() {
     let secondId = this.formBe.get('secondSelect')?.value;
-    let req: GetThirdCategoryRequest = {
-      secondID: secondId,
-    };
-    this._http.GetThirdCategory(req).subscribe((res) => {
-      console.log('thirdSelectData:', res);
-      this.thirdSelectData = res;
-    });
+    if (secondId) {
+      this._http.GetThirdCategory().subscribe((res) => {
+        console.log('thirdSelectData:', res);
+        this.thirdSelectData = res;
+      });
+    }
   }
 
   add() {

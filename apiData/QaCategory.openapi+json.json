@@ -581,12 +581,12 @@
             }
         },
         "/api/Groups/GetFirstCategory": {
-            "post": {
+            "get": {
                 "tags": [
                     "Groups"
                 ],
-                "summary": "/api/Groups/GetFirstCategory - POST",
-                "operationId": "post-api-groups-getfirstcategory",
+                "summary": "/api/Groups/GetFirstCategory - GET",
+                "operationId": "get-api-groups-getfirstcategory",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -595,12 +595,12 @@
             }
         },
         "/api/Groups/GetSecondCategory": {
-            "post": {
+            "get": {
                 "tags": [
                     "Groups"
                 ],
-                "summary": "/api/Groups/GetSecondCategory - POST",
-                "operationId": "post-api-groups-getsecondcategory",
+                "summary": "/api/Groups/GetSecondCategory - GET",
+                "operationId": "get-api-groups-getsecondcategory",
                 "parameters": [
                     {
                         "name": "firstID",
@@ -618,12 +618,12 @@
             }
         },
         "/api/Groups/GetThirdCategory": {
-            "post": {
+            "get": {
                 "tags": [
                     "Groups"
                 ],
-                "summary": "/api/Groups/GetThirdCategory - POST",
-                "operationId": "post-api-groups-getthirdcategory",
+                "summary": "/api/Groups/GetThirdCategory - GET",
+                "operationId": "get-api-groups-getthirdcategory",
                 "parameters": [
                     {
                         "name": "secondID",

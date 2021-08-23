@@ -37,13 +37,13 @@ export interface CreateGroupRequest {
 export interface GetMenuRes {
   id: string;
   firstName: string;
-  secondItems: GetMenuSecondRes;
+  secondItems: GetMenuSecondRes[];
 }
 
 export interface GetMenuSecondRes {
   secondId: string;
   secondName: string;
-  thirdItems: GetMenuThirdRes;
+  thirdItems: GetMenuThirdRes[];
 }
 
 export interface GetMenuThirdRes {

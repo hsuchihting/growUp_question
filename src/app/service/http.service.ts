@@ -32,13 +32,13 @@ export class HttpService {
   }
 
   //*下拉母分類
-  GetSecondCategory(param: GetSecondCategoryRequest): Observable<any> {
-    return this._http.post(`${this.apiUrl}/Groups/GetSecondCategory`, param);
+  GetSecondCategory(): Observable<any> {
+    return this._http.get(`${this.apiUrl}/Groups/GetSecondCategory`);
   }
 
   //*下拉子分類
-  GetThirdCategory(param: GetThirdCategoryRequest): Observable<any> {
-    return this._http.post(`${this.apiUrl}/Groups/GetThirdCategory`, param);
+  GetThirdCategory(): Observable<any> {
+    return this._http.get(`${this.apiUrl}/Groups/GetThirdCategory`);
   }
 
   //*新增群組
@@ -70,9 +70,6 @@ export class HttpService {
 
   //*搜尋所有資料
   searchPage() {
-    return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`)
+    return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`);
   }
-
-
-
 }

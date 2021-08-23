@@ -47,20 +47,24 @@
 </form>
 
 <ul class="nav">
-  <ng-container *ngFor="let row of getMenuData | keyvalue">
-    {{ row.value | json }}
-
+  <ng-container *ngFor="let row of getMenuData; let i = index">
     <li>
-      <span> 個人金融 </span>
+      <span> {{ row.firstName }} </span>
       <ul>
-        <li>
-          <span> 存款 </span>
-          <ul>
-            <li (click)="detail()">
-              <span> 信用卡 </span>
-            </li>
-          </ul>
-        </li>
+        <ng-container *ngFor="let item of row.secondItems">
+          <li>
+            <span> {{ item.secondName }} </span>
+            <ul>
+              <ng-container *ngFor="let childItem of item.thirdItems">
+                <li (click)="detail()">
+                  <span> {{childItem.thirdName}} </span>
+                </li>
+              </ng-container>
+
+
+            </ul>
+          </li>
+        </ng-container>
       </ul>
     </li>
   </ng-container>

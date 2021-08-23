@@ -4,6 +4,7 @@ h2 {
   color: $primary;
   font-size: 24px;
   padding-bottom: 2%;
+  font-weight: bold;
 }
 
 .btn {
@@ -32,11 +33,12 @@ h2 {
     display: block;
     margin-bottom: 2%;
     span {
-      margin-right: 2%;
+      font-size: 18px;
     }
+
     select,
     .title {
-      margin-right: 1%;
+      margin-top: 2%;
       background-color: #fff;
       width: 100%;
       height: 44px;
@@ -46,6 +48,13 @@ h2 {
       &:focus {
         outline: none;
       }
+    }
+    textarea {
+      margin-top: 2%;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding-left: 14px;
     }
   }
 }

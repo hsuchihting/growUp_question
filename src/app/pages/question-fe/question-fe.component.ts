@@ -51,7 +51,7 @@ export class QuestionFeComponent implements OnInit {
 
   getFirstDropdown() {
     this._http.GetFirstCategory().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.firstSelectData = res;
     });
   }
@@ -59,11 +59,9 @@ export class QuestionFeComponent implements OnInit {
   getSecondDropdown() {
     let firstId = this.formFe.get('firstSelect')?.value;
     console.log('firstId:', firstId);
-    let req: GetSecondCategoryRequest = {
-      firstID: firstId,
-    };
+
     if (firstId) {
-      this._http.GetSecondCategory(req).subscribe((res) => {
+      this._http.GetSecondCategory().subscribe((res) => {
         console.log('secondSelectData:', res);
         this.secondSelectData = res;
       });
@@ -72,25 +70,23 @@ export class QuestionFeComponent implements OnInit {
 
   getThirdDropdown() {
     let secondId = this.formFe.get('secondSelect')?.value;
-    let req: GetThirdCategoryRequest = {
-      secondID: secondId,
-    };
-    this._http.GetThirdCategory(req).subscribe((res) => {
-      console.log('thirdSelectData:', res);
-      this.thirdSelectData = res;
-    });
+    if (secondId) {
+      this._http.GetThirdCategory().subscribe((res) => {
+        console.log('thirdSelectData:', res);
+        this.thirdSelectData = res;
+      });
+    }
   }
 
   getMenuData: GetMenuRes[] = [];
-  objectArray: GetMenuRes[] = [];
+
   getMenu() {
     this._http.getMenu().subscribe((res) => {
       Object.values(res).forEach((item) => {
-        this.objectArray = item;
+        this.getMenuData = item;
       });
 
-      this.getMenuData = this.objectArray;
-      console.log(this.getMenuData);
+      console.log('getMenuData', this.getMenuData);
     });
   }
   search() {

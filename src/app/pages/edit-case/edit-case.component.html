@@ -1,12 +1,18 @@
 <h2>編輯項目</h2>
 <hr />
-<form class="form">
+<form class="form" [formGroup]="editForm">
   <div class="block">
     <label>
       <span>上層分類</span>
-      <select>
+      <select formControlName="firstSelect">
         <option value="" disabled>請選擇上層分類</option>
-        <option value=""></option>
+        <option
+      [id]="item.id"
+      [value]="item.id"
+      *ngFor="let item of firstSelectData"
+    >
+      {{ item.firstgroupname }}
+    </option>
       </select>
     </label>
   </div>
@@ -14,9 +20,15 @@
   <div class="block">
     <label>
       <span>母分類</span>
-      <select>
+      <select formControlName="secondSelect" (change)="getThirdDropdown()">
         <option value="" disabled>請選擇母分類</option>
-        <option value=""></option>
+        <option
+        [id]="item.secondID"
+        [value]="item.secondID"
+        *ngFor="let item of secondSelectData"
+      >
+        {{ item.secondgroupname }}
+      </option>
       </select>
     </label>
   </div>
@@ -24,9 +36,15 @@
   <div class="block">
     <label>
       <span>子分類</span>
-      <select>
+      <select formControlName="thirdSelect">
         <option value="" disabled>請選擇子分類</option>
-        <option value=""></option>
+        <option
+        [id]="item.thirdID"
+        [value]="item.thirdID"
+        *ngFor="let item of thirdSelectData"
+      >
+        {{ item.thirdgroupname }}
+      </option>
       </select>
     </label>
   </div>
@@ -34,20 +52,32 @@
   <div class="block">
     <label>
       <span>標題</span>
-      <input type="text" placeholder="請輸入標題" class="title" />
+      <input
+        type="text"
+        placeholder="請輸入標題"
+        class="title"
+        formControlName="title"
+      />
     </label>
   </div>
 
   <div class="block">
     <label>
       <span>審核狀態</span>
-      <select disabled>
+      <select formControlName="audit">
+        <option value="" disabled>請選擇審核狀態</option>
         <option value="1">未審核</option>
       </select>
     </label>
   </div>
 
   <div class="block">
+    <label>
+      <span>答案</span>
+      <textarea cols="30" rows="10" formControlName="answer"></textarea>
+    </label>
+  </div>
+  <!-- <div class="block">
     <label>
       <span> 上架日期 </span>
       <mat-form-field appearance="fill">
@@ -57,7 +87,7 @@
         <mat-datepicker #sDate></mat-datepicker>
       </mat-form-field>
     </label>
-  </div>
+  </div> -->
 </form>
 
 <button type="button" class="btn btn-primary">儲存</button>

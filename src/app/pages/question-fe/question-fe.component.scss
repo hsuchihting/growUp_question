@@ -3,7 +3,6 @@ $primary: #3b82f6;
 .btn {
   text-align: center;
   width: 100px;
-  border: 1px solid #333;
   border-radius: 10px;
   margin-left: 2%;
   color: #fff;
@@ -56,11 +55,14 @@ $primary: #3b82f6;
 
 .nav {
   margin-top: 5%;
+  width: 100%;
+  display: flex;
   li {
-    display: block;
+    width: 100%;
+    display: flex;
     color: #333;
     border-bottom: 1px dashed #333;
-    padding: 20px 10px;
+    padding: 20px 0;
     position: relative;
     cursor: pointer;
     font-size: 18px;
@@ -69,7 +71,8 @@ $primary: #3b82f6;
     }
     &:hover,
     > li {
-      display: block;
+      width: 100%;
+      // display: block;
       background-color: $primary;
       transition: all 0.3s;
       color: #fff;
@@ -82,9 +85,9 @@ $primary: #3b82f6;
       position: absolute;
       top: 100%;
       width: 100%;
-      background-color: rgba(#d1d1d1, 0.7);
+      // background-color: rgba(#d1d1d1, 0.7);
       // bottom: 15px;
-      box-shadow: 5px 5px 10px rgba(#171736, 0.6);
+      // box-shadow: 0px 5px 10px rgba(#171736, 0.6);
     }
   }
 }
