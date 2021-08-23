@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
+  GerUserPageResponse,
   GetFirstCategoryResponse,
   GetMenuRes,
   GetSecondCategoryRequest,
@@ -22,13 +23,14 @@ export class QuestionBeComponent implements OnInit {
 
   //*上層分類下拉選單
   firstSelectData: GetFirstCategoryResponse[] = [];
-  firstId: string = '';
 
   //*母分類下拉選單
   secondSelectData: GetSecondCategoryResponse[] = [];
 
   //*子分類下拉選單
   thirdSelectData: GetThirdCategoryResponse[] = [];
+  userPageItem: GerUserPageResponse[] = [];
+  // userPageItem: any = {};
 
   constructor(
     private _fb: FormBuilder,
@@ -46,12 +48,15 @@ export class QuestionBeComponent implements OnInit {
       firstSelect: '',
       secondSelect: '',
       thirdSelect: '',
-      input: '',
+      keyword: '',
     });
   }
 
   search() {
-    alert('search');
+    let thirdId = this.formBe.get('thirdSelect')?.value;
+    this._http.getUserPage(thirdId).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   getFirstDropdown() {

@@ -116,6 +116,7 @@ export interface GerUserPageResponse {
   question: string;
   answer: string;
   creditStatus: number;
+  thirdID?:string
 }
 
 //*刪除問與答

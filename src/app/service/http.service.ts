@@ -19,11 +19,11 @@ export class HttpService {
   options!: OptionModal;
   apiUrl: string = environment.apiUrl;
   constructor(private _http: HttpClient) {
-    this.options = {
-      headers: new HttpHeaders({
-        'content/type': 'application/json',
-      }),
-    };
+    // this.options = {
+    //   headers: new HttpHeaders({
+    //     'content/type': 'application/json',
+    //   }),
+    // };
   }
 
   //*下拉第一大類
@@ -84,5 +84,10 @@ export class HttpService {
     );
   }
 
-
+  //*取得特定群組內問與答
+  getUserPage(param: string) {
+    return this._http.get(
+      `${this.apiUrl}/UserSubject/GetUserPage?thirdID=${param}`
+    );
+  }
 }

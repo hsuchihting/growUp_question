@@ -36,7 +36,7 @@
     </option>
   </select>
 
-  <input type="text" placeholder="請輸入關鍵字" formControlName="input" />
+  <input type="text" placeholder="請輸入關鍵字" formControlName="keyword" />
 
   <select formControlName="thirdSelect">
     <option value="" disabled>審核狀態</option>
@@ -84,7 +84,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let item of userPageItem; let i = index">
         <td>
           <div class="feature">
             <button type="button" class="btn btn-edit" (click)="edit()">
@@ -93,11 +93,11 @@
             <button type="button" class="btn btn-delete">刪除</button>
           </div>
         </td>
-        <td>22</td>
-        <td>33</td>
-        <td>44</td>
-        <td>55</td>
-        <td>66</td>
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.subject }}</td>
+        <td>{{ item.creditStatus }}</td>
+        <td>{{ item.release_date }}}</td>
+        <td>{{ item.estimate_invalid_date }}</td>
       </tr>
     </tbody>
   </table>
