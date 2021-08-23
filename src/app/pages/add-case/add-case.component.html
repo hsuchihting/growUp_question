@@ -4,15 +4,15 @@
   <div class="block">
     <label>
       <span>上層分類</span>
-      <select formControlName="firstSelect">
+      <select formControlName="firstSelect" (change)="getSecondDropdown()">
         <option value="" disabled>請選擇上層分類</option>
         <option
-      [id]="item.id"
-      [value]="item.id"
-      *ngFor="let item of firstSelectData"
-    >
-      {{ item.firstgroupname }}
-    </option>
+          [id]="item.id"
+          [value]="item.id"
+          *ngFor="let item of firstSelectData"
+        >
+          {{ item.firstgroupname }}
+        </option>
       </select>
     </label>
   </div>
@@ -23,12 +23,12 @@
       <select formControlName="secondSelect" (change)="getThirdDropdown()">
         <option value="" disabled>請選擇母分類</option>
         <option
-        [id]="item.secondID"
-        [value]="item.secondID"
-        *ngFor="let item of secondSelectData"
-      >
-        {{ item.secondgroupname }}
-      </option>
+          [id]="item.secondID"
+          [value]="item.secondID"
+          *ngFor="let item of secondSelectData"
+        >
+          {{ item.secondgroupname }}
+        </option>
       </select>
     </label>
   </div>
@@ -39,12 +39,12 @@
       <select formControlName="thirdSelect">
         <option value="" disabled>請選擇子分類</option>
         <option
-        [id]="item.thirdID"
-        [value]="item.thirdID"
-        *ngFor="let item of thirdSelectData"
-      >
-        {{ item.thirdgroupname }}
-      </option>
+          [id]="item.thirdID"
+          [value]="item.thirdID"
+          *ngFor="let item of thirdSelectData"
+        >
+          {{ item.thirdgroupname }}
+        </option>
       </select>
     </label>
   </div>
@@ -65,7 +65,6 @@
     <label>
       <span>審核狀態</span>
       <select formControlName="audit">
-        <option value="" disabled>請選擇審核狀態</option>
         <option value="1">未審核</option>
       </select>
     </label>

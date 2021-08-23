@@ -57,6 +57,7 @@ $primary: #3b82f6;
   margin-top: 5%;
   width: 100%;
   display: flex;
+
   li {
     width: 100%;
     display: flex;
@@ -66,6 +67,9 @@ $primary: #3b82f6;
     position: relative;
     cursor: pointer;
     font-size: 18px;
+    font-weight: bold;
+    margin-right: 1%;
+
     span {
       padding-left: 3%;
     }
@@ -73,9 +77,9 @@ $primary: #3b82f6;
     > li {
       width: 100%;
       // display: block;
-      background-color: $primary;
+      background-color: #aacafc;
       transition: all 0.3s;
-      color: #fff;
+      color: #333;
     }
     &:hover > ul {
       display: block;

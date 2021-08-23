@@ -32,13 +32,15 @@ export class HttpService {
   }
 
   //*下拉母分類
-  GetSecondCategory(): Observable<any> {
-    return this._http.get(`${this.apiUrl}/Groups/GetSecondCategory`);
+  GetSecondCategory(param: string): Observable<any> {
+    return this._http.get(
+      `${this.apiUrl}/Groups/GetSecondCategory?firstID=${param}`
+    );
   }
 
   //*下拉子分類
-  GetThirdCategory(): Observable<any> {
-    return this._http.get(`${this.apiUrl}/Groups/GetThirdCategory`);
+  GetThirdCategory(param: string): Observable<any> {
+    return this._http.get(`${this.apiUrl}/Groups/GetThirdCategory?secondID=${param}`);
   }
 
   //*新增群組

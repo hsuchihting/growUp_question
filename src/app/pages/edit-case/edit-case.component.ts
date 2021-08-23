@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   GetFirstCategoryResponse,
+  GetSecondCategoryRequest,
   GetSecondCategoryResponse,
+  GetThirdCategoryRequest,
   GetThirdCategoryResponse,
 } from 'src/app/model/createGroup-model';
 import { HttpService } from 'src/app/service/http.service';
@@ -50,30 +52,22 @@ export class EditCaseComponent implements OnInit {
 
   getFirstDropdown() {
     this._http.GetFirstCategory().subscribe((res) => {
-      console.log(res);
       this.firstSelectData = res;
     });
   }
 
   getSecondDropdown() {
     let firstId = this.editForm.get('firstSelect')?.value;
-    console.log(firstId);
-
-    if (firstId) {
-      this._http.GetSecondCategory().subscribe((res) => {
-        console.log('secondSelectData:', res);
-        this.secondSelectData = res;
-      });
-    }
+    this._http.GetSecondCategory(firstId).subscribe((res) => {
+      this.secondSelectData = res;
+    });
   }
 
   getThirdDropdown() {
     let secondId = this.editForm.get('secondSelect')?.value;
-    if (secondId) {
-      this._http.GetThirdCategory().subscribe((res) => {
-        console.log('thirdSelectData:', res);
-        this.thirdSelectData = res;
-      });
-    }
+
+    this._http.GetThirdCategory(secondId).subscribe((res) => {
+      this.thirdSelectData = res;
+    });
   }
 }

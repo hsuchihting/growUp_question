@@ -21,13 +21,16 @@ export class QuestionFeComponent implements OnInit {
   formFe!: FormGroup;
   //*上層分類下拉選單
   firstSelectData: GetFirstCategoryResponse[] = [];
-  firstId: string = '';
 
   //*母分類下拉選單
   secondSelectData: GetSecondCategoryResponse[] = [];
 
   //*子分類下拉選單
   thirdSelectData: GetThirdCategoryResponse[] = [];
+
+  //*menu
+  getMenuData: GetMenuRes[] = [];
+
   constructor(
     private _fb: FormBuilder,
     private _router: Router,
@@ -51,34 +54,26 @@ export class QuestionFeComponent implements OnInit {
 
   getFirstDropdown() {
     this._http.GetFirstCategory().subscribe((res) => {
-      // console.log(res);
       this.firstSelectData = res;
     });
   }
 
   getSecondDropdown() {
     let firstId = this.formFe.get('firstSelect')?.value;
-    console.log('firstId:', firstId);
-
-    if (firstId) {
-      this._http.GetSecondCategory().subscribe((res) => {
-        console.log('secondSelectData:', res);
-        this.secondSelectData = res;
-      });
-    }
+    this._http.GetSecondCategory(firstId).subscribe((res) => {
+      this.secondSelectData = res;
+    });
   }
 
   getThirdDropdown() {
     let secondId = this.formFe.get('secondSelect')?.value;
-    if (secondId) {
-      this._http.GetThirdCategory().subscribe((res) => {
-        console.log('thirdSelectData:', res);
-        this.thirdSelectData = res;
-      });
-    }
+
+    this._http.GetThirdCategory(secondId).subscribe((res) => {
+      this.thirdSelectData = res;
+    });
   }
 
-  getMenuData: GetMenuRes[] = [];
+
 
   getMenu() {
     this._http.getMenu().subscribe((res) => {

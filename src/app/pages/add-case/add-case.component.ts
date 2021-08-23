@@ -46,37 +46,30 @@ export class AddCaseComponent implements OnInit {
       thirdSelect: '',
       title: '',
       answer: '',
-      audit: '',
+      audit: '1',
       // date: this.date,
     });
   }
 
   getFirstDropdown() {
     this._http.GetFirstCategory().subscribe((res) => {
-      console.log(res);
       this.firstSelectData = res;
     });
   }
 
   getSecondDropdown() {
     let firstId = this.addForm.get('firstSelect')?.value;
-
-    if (firstId) {
-      this._http.GetSecondCategory().subscribe((res) => {
-        console.log('secondSelectData:', res);
-        this.secondSelectData = res;
-      });
-    }
+    this._http.GetSecondCategory(firstId).subscribe((res) => {
+      this.secondSelectData = res;
+    });
   }
 
   getThirdDropdown() {
     let secondId = this.addForm.get('secondSelect')?.value;
-    if (secondId) {
-      this._http.GetThirdCategory().subscribe((res) => {
-        console.log('thirdSelectData:', res);
-        this.thirdSelectData = res;
-      });
-    }
+
+    this._http.GetThirdCategory(secondId).subscribe((res) => {
+      this.thirdSelectData = res;
+    });
   }
 
   save() {
