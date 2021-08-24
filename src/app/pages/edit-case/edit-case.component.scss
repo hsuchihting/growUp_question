@@ -1,14 +1,16 @@
-$primary: #3b82f6;
+$primary: #405351;
+$add: #fbc02d;
 
 h2 {
   color: $primary;
   font-size: 24px;
   padding-bottom: 2%;
+  font-weight: bold;
 }
 
 .btn {
   text-align: center;
-  width: 100%;
+  width: 45%;
   height: 44px;
   border: none;
   border-radius: 10px;
@@ -19,10 +21,21 @@ h2 {
   }
 }
 
-.btn-primary {
-  background-color: $primary;
-  &:hover {
-    background: darken($primary, 10%);
+.btnGroup {
+  display: flex;
+  justify-content: space-around;
+  .btn-primary {
+    background-color: $add;
+    &:hover {
+      background: darken($add, 10%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: gray;
+    &:hover {
+      background: darken(gray, 10%);
+    }
   }
 }
 

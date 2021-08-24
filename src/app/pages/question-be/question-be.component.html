@@ -84,19 +84,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of userPageItem; let i = index">
+      <tr [id]="item.id" *ngFor="let item of userPageItem; let i = index">
         <td>
           <div class="feature">
-            <button type="button" class="btn btn-edit" (click)="edit()">
+            <button type="button" class="btn btn-edit" (click)="edit(item.id)">
               編輯
             </button>
-            <button type="button" class="btn btn-delete">刪除</button>
+            <button type="button" class="btn btn-delete" (click)="delete(item.id)">刪除</button>
           </div>
         </td>
         <td>{{ i + 1 }}</td>
         <td>{{ item.subject }}</td>
         <td>{{ item.creditStatus }}</td>
-        <td>{{ item.release_date }}}</td>
+        <td>{{ item.release_date }}</td>
         <td>{{ item.estimate_invalid_date }}</td>
       </tr>
     </tbody>

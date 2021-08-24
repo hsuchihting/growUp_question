@@ -30,23 +30,31 @@ export class AddTypeComponent implements OnInit {
   }
 
   save() {
-    let param = this.addTypeForm.getRawValue();
-    alert('新增成功');
+    if (this.addTypeForm.invalid) {
+      alert('請輸入資料');
+    } else {
+      let param = this.addTypeForm.getRawValue();
+      alert('新增成功');
 
-    let req: CreateGroupRequest = {
-      id: 'string',
-      secondID: 'string',
-      thirdID: 'string',
-      ...param,
-    };
-    this._http.createGroup(req).subscribe(
-      (res) => {
-        alert('新增成功');
-        this._router.navigate(['/questionFe']);
-      },
-      (err) => {
-        alert('傳送失敗');
-      }
-    );
+      let req: CreateGroupRequest = {
+        id: 'string',
+        secondID: 'string',
+        thirdID: 'string',
+        ...param,
+      };
+      this._http.createGroup(req).subscribe(
+        (res) => {
+          alert('新增成功');
+          this._router.navigate(['/questionFe']);
+        },
+        (err) => {
+          alert('傳送失敗');
+        }
+      );
+    }
+  }
+
+  back() {
+    window.history.go(-1);
   }
 }

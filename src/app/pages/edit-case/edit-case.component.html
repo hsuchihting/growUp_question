@@ -1,18 +1,18 @@
 <h2>編輯項目</h2>
 <hr />
 <form class="form" [formGroup]="editForm">
-  <div class="block">
+  <!-- <div class="block">
     <label>
       <span>上層分類</span>
-      <select formControlName="firstSelect">
+      <select formControlName="firstSelect" (change)="getSecondDropdown()">
         <option value="" disabled>請選擇上層分類</option>
         <option
-      [id]="item.id"
-      [value]="item.id"
-      *ngFor="let item of firstSelectData"
-    >
-      {{ item.firstgroupname }}
-    </option>
+          [id]="item.id"
+          [value]="item.id"
+          *ngFor="let item of firstSelectData"
+        >
+          {{ item.firstgroupname }}
+        </option>
       </select>
     </label>
   </div>
@@ -23,12 +23,12 @@
       <select formControlName="secondSelect" (change)="getThirdDropdown()">
         <option value="" disabled>請選擇母分類</option>
         <option
-        [id]="item.secondID"
-        [value]="item.secondID"
-        *ngFor="let item of secondSelectData"
-      >
-        {{ item.secondgroupname }}
-      </option>
+          [id]="item.secondID"
+          [value]="item.secondID"
+          *ngFor="let item of secondSelectData"
+        >
+          {{ item.secondgroupname }}
+        </option>
       </select>
     </label>
   </div>
@@ -39,15 +39,15 @@
       <select formControlName="thirdSelect">
         <option value="" disabled>請選擇子分類</option>
         <option
-        [id]="item.thirdID"
-        [value]="item.thirdID"
-        *ngFor="let item of thirdSelectData"
-      >
-        {{ item.thirdgroupname }}
-      </option>
+          [id]="item.thirdID"
+          [value]="item.thirdID"
+          *ngFor="let item of thirdSelectData"
+        >
+          {{ item.thirdgroupname }}
+        </option>
       </select>
     </label>
-  </div>
+  </div> -->
 
   <div class="block">
     <label>
@@ -66,7 +66,9 @@
       <span>審核狀態</span>
       <select formControlName="audit">
         <option value="" disabled>請選擇審核狀態</option>
+        <option value="0">已審核</option>
         <option value="1">未審核</option>
+        <option value="2">審核中</option>
       </select>
     </label>
   </div>
@@ -77,17 +79,11 @@
       <textarea cols="30" rows="10" formControlName="answer"></textarea>
     </label>
   </div>
-  <!-- <div class="block">
-    <label>
-      <span> 上架日期 </span>
-      <mat-form-field appearance="fill">
-        <mat-label>起始日</mat-label>
-        <input matInput [matDatepicker]="sDate" />
-        <mat-datepicker-toggle matSuffix [for]="sDate"></mat-datepicker-toggle>
-        <mat-datepicker #sDate></mat-datepicker>
-      </mat-form-field>
-    </label>
-  </div> -->
-</form>
 
-<button type="button" class="btn btn-primary">儲存</button>
+  <div class="btnGroup">
+    <button type="button" class="btn btn-primary" (click)="save()">儲存</button>
+    <button type="button" class="btn btn-secondary" (click)="back()">
+      取消
+    </button>
+  </div>
+</form>

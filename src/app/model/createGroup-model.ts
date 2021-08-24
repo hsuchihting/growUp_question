@@ -78,8 +78,16 @@ export interface GetSubjectPageResponse {
 
 //*編輯問與答
 export interface EditSubjectRequest {
-  thirdname: string;
-  subjectID: string;
+  thirdname?: string;
+  subjectID?: string;
+  id?: string,
+  sequence?: number,
+  subject: string,
+  release_date?: string,
+  estimate_invalid_date?: string,
+  question: string,
+  answer: string,
+  creditStatus: number
 }
 
 export interface EditSubjectResponse {
@@ -107,7 +115,7 @@ export interface GetUserPageRequest {
   thirdID: string;
 }
 
-export interface GerUserPageResponse {
+export interface GetUserPageResponse {
   id: string;
   sequence: number;
   subject: string;

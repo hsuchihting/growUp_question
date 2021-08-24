@@ -77,7 +77,7 @@ export class HttpService {
     return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`);
   }
 
-  //*新增群組內問與答
+  //*取得群組內問與答
   getSubjectPage(param: string) {
     return this._http.get(
       `${this.apiUrl}/Groups/GetSubjectPage=?thirdID=${param}`

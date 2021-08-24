@@ -1,5 +1,5 @@
 import { HttpService } from './../../service/http.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -39,11 +39,11 @@ export class AddCaseComponent implements OnInit {
 
   createForm() {
     this.addForm = this._fb.group({
-      firstSelect: '',
-      secondSelect: '',
-      thirdSelect: '',
-      title: '',
-      answer: '',
+      firstSelect: ['', [Validators.required]],
+      secondSelect: ['', [Validators.required]],
+      thirdSelect: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      answer: ['', [Validators.required]],
       audit: '1',
       // date: this.date,
     });
@@ -71,26 +71,34 @@ export class AddCaseComponent implements OnInit {
   }
 
   save() {
-    let thirdId = this.addForm.get('thirdSelect')?.value;
-    let subject = this.addForm.get('title')?.value;
-    let creditStatus = Number(this.addForm.get('audit')?.value);
-    let answer = this.addForm.get('answer')?.value;
+    if (this.addForm.invalid) {
+      alert('請輸入資料');
+    } else {
+      let thirdId = this.addForm.get('thirdSelect')?.value;
+      let subject = this.addForm.get('title')?.value;
+      let creditStatus = Number(this.addForm.get('audit')?.value);
+      let answer = this.addForm.get('answer')?.value;
 
-    let req: CreateSubjectRequest = {
-      subject: subject,
-      thirdID: thirdId,
-      creditStatus: creditStatus,
-      question: subject,
-      answer: answer,
-    };
-    this._http.createSubject(req).subscribe(
-      (res) => {
-        alert('新增成功');
-        this._router.navigate(['/questionBe']);
-      },
-      (err) => {
-        alert('傳送失敗');
-      }
-    );
+      let req: CreateSubjectRequest = {
+        subject: subject,
+        thirdID: thirdId,
+        creditStatus: creditStatus,
+        question: subject,
+        answer: answer,
+      };
+      this._http.createSubject(req).subscribe(
+        (res) => {
+          alert('新增成功');
+          this._router.navigate(['/questionBe']);
+        },
+        (err) => {
+          alert('傳送失敗');
+        }
+      );
+    }
+  }
+
+  back() {
+    window.history.go(-1);
   }
 }
