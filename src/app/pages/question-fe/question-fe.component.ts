@@ -79,6 +79,18 @@ export class QuestionFeComponent implements OnInit {
   }
   search() {
     alert('search');
+    let thirdId = this.formFe.get('thirdSelect')?.value;
+    console.log(thirdId);
+
+    this.getUserPageData(thirdId);
+  }
+
+  userPageItem: any;
+  getUserPageData(param: string) {
+    this._http.getUserPage(param).subscribe((res) => {
+      console.log(res);
+      this.userPageItem = res;
+    });
   }
 
   add() {

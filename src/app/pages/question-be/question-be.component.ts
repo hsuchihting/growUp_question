@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import {
   DeleteSubjectRequest,
   GetFirstCategoryResponse,
+  GetSearchPageRequest,
   GetSecondCategoryResponse,
   GetThirdCategoryResponse,
 } from 'src/app/model/createGroup-model';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-question-be',
@@ -36,6 +36,7 @@ export class QuestionBeComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.getFirstDropdown();
+    this.getSearchPage();
   }
 
   createForm() {
@@ -43,29 +44,46 @@ export class QuestionBeComponent implements OnInit {
       firstSelect: '',
       secondSelect: '',
       thirdSelect: '',
-      keyword: '',
+      searchString: '',
+      creditStatus: '',
     });
   }
 
-  userPageItem: any;
-  search() {
-    let thirdId = this.formBe.get('thirdSelect')?.value;
-    this.getUserPageData(thirdId);
-  }
+  getSearchPage() {
+    let param = this.formBe.getRawValue();
+    let req: GetSearchPageRequest = {
+      ...param,
+    };
 
-  getUserPageData(param: string) {
-    this._http.getUserPage(param).subscribe((res) => {
+    this._http.getSearchPage(req).subscribe((res) => {
       console.log(res);
       this.userPageItem = res;
     });
   }
 
+  //*搜尋按鈕
+  userPageItem: any;
+  search() {
+    this.getUserPageData();
+  }
+
+  //*取得特定群組內問與答
+  getUserPageData() {
+    let thirdId = this.formBe.get('thirdSelect')?.value;
+    this._http.getUserPage(thirdId).subscribe((res) => {
+      console.log(res);
+      this.userPageItem = res;
+    });
+  }
+
+  //*第一個下拉選單
   getFirstDropdown() {
     this._http.GetFirstCategory().subscribe((res) => {
       this.firstSelectData = res;
     });
   }
 
+  //*第二個下拉選單
   getSecondDropdown() {
     let firstId = this.formBe.get('firstSelect')?.value;
     this._http.GetSecondCategory(firstId).subscribe((res) => {
@@ -73,6 +91,7 @@ export class QuestionBeComponent implements OnInit {
     });
   }
 
+  //*第三個下拉選單
   getThirdDropdown() {
     let secondId = this.formBe.get('secondSelect')?.value;
     this._http.GetThirdCategory(secondId).subscribe((res) => {
@@ -80,23 +99,30 @@ export class QuestionBeComponent implements OnInit {
     });
   }
 
+  //*新增問答
   add() {
     this._router.navigate(['/add-case']);
   }
 
+  //*編輯問答
   edit(param: string) {
     this._router.navigate(['/edit-case', { id: param }]);
   }
 
+  //*刪除
   delete(param: string) {
-    // alert(param);
-    // console.log(param);
+    console.log('param', param, typeof param);
 
     let req: DeleteSubjectRequest = {
       subjectID: param,
     };
-    this._http.deleteSubject(req).subscribe((res) => {
-      alert('刪除成功');
-    });
+    this._http.deleteSubject(req).subscribe(
+      (res) => {
+        alert('刪除成功');
+      },
+      (err) => {
+        alert('刪除失敗');
+      }
+    );
   }
 }

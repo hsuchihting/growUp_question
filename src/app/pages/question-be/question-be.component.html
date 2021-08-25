@@ -36,9 +36,14 @@
     </option>
   </select>
 
-  <input type="text" placeholder="請輸入關鍵字" formControlName="keyword" />
+  <input
+    type="text"
+    placeholder="請輸入關鍵字"
+    formControlName="searchString"
 
-  <select formControlName="thirdSelect">
+  />
+
+  <select formControlName="creditStatus">
     <option value="" disabled>審核狀態</option>
     <option value="0">已審核</option>
     <option value="1">未審核</option>
@@ -90,7 +95,13 @@
             <button type="button" class="btn btn-edit" (click)="edit(item.id)">
               編輯
             </button>
-            <button type="button" class="btn btn-delete" (click)="delete(item.id)">刪除</button>
+            <button
+              type="button"
+              class="btn btn-delete"
+              (click)="delete(item.id)"
+            >
+              刪除
+            </button>
           </div>
         </td>
         <td>{{ i + 1 }}</td>

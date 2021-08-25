@@ -8,6 +8,7 @@ import {
   CreateSubjectRequest,
   DeleteSubjectRequest,
   EditSubjectRequest,
+  GetSearchPageRequest,
   GetSecondCategoryRequest,
   GetThirdCategoryRequest,
 } from '../model/createGroup-model';
@@ -89,5 +90,9 @@ export class HttpService {
     return this._http.get(
       `${this.apiUrl}/UserSubject/GetUserPage?thirdID=${param}`
     );
+  }
+
+  getSearchPage(param:GetSearchPageRequest){
+    return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`)
   }
 }

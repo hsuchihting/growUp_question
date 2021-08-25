@@ -131,3 +131,24 @@ export interface GetUserPageResponse {
 export interface DeleteSubjectRequest {
   subjectID: string;
 }
+
+//*取得所有資料
+export interface GetSearchPageRequest{
+firstID:string,
+secondID:string,
+thirdID:string,
+searchstring:string
+creditstatus:number
+}
+
+export interface GetSearchPageResponse{
+  id?: string,
+  sequence?: number,
+  subject: string,
+  release_date: string,
+  estimate_invalid_date: string,
+  question: string,
+  answer: string,
+  creditStatus: number,
+  thirdID: string
+}
