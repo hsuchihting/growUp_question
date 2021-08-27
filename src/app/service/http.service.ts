@@ -17,15 +17,8 @@ import {
   providedIn: 'root',
 })
 export class HttpService {
-  options!: OptionModal;
   apiUrl: string = environment.apiUrl;
-  constructor(private _http: HttpClient) {
-    // this.options = {
-    //   headers: new HttpHeaders({
-    //     'content/type': 'application/json',
-    //   }),
-    // };
-  }
+  constructor(private _http: HttpClient) {}
 
   //*下拉第一大類
   GetFirstCategory(): Observable<any> {
@@ -67,7 +60,7 @@ export class HttpService {
   }
 
   //*刪除問與答
-  deleteSubject(param: DeleteSubjectRequest): Observable<any> {
+  deleteSubject(param: string): Observable<any> {
     return this._http.delete(
       `${this.apiUrl}/Groups/DeleteSubject?subjectID=${param}`
     );
@@ -92,7 +85,7 @@ export class HttpService {
     );
   }
 
-  getSearchPage(param:GetSearchPageRequest){
-    return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`)
+  getSearchPage(param?: GetSearchPageRequest) {
+    return this._http.get(`${this.apiUrl}/Groups/GetSearchPage`);
   }
 }

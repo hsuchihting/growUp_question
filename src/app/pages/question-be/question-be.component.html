@@ -40,7 +40,6 @@
     type="text"
     placeholder="請輸入關鍵字"
     formControlName="searchString"
-
   />
 
   <select formControlName="creditStatus">
@@ -88,28 +87,42 @@
         <th scope="col">下架日期</th>
       </tr>
     </thead>
-    <tbody>
-      <tr [id]="item.id" *ngFor="let item of userPageItem; let i = index">
-        <td>
-          <div class="feature">
-            <button type="button" class="btn btn-edit" (click)="edit(item.id)">
-              編輯
-            </button>
-            <button
-              type="button"
-              class="btn btn-delete"
-              (click)="delete(item.id)"
-            >
-              刪除
-            </button>
-          </div>
-        </td>
-        <td>{{ i + 1 }}</td>
-        <td>{{ item.subject }}</td>
-        <td>{{ item.creditStatus }}</td>
-        <td>{{ item.release_date }}</td>
-        <td>{{ item.estimate_invalid_date }}</td>
-      </tr>
-    </tbody>
+    <ng-container *ngIf="userPageItem.length > 0; else elseTemplate">
+      <tbody>
+        <tr [id]="item.id" *ngFor="let item of userPageItem; let i = index">
+          <td>
+            <div class="feature">
+              <button
+                type="button"
+                class="btn btn-edit"
+                (click)="edit(item.id)"
+              >
+                編輯
+              </button>
+              <button
+                type="button"
+                class="btn btn-delete"
+                (click)="del(item.id)"
+              >
+                刪除
+              </button>
+              {{ item.id }}
+            </div>
+          </td>
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.subject }}</td>
+          <td>{{ item.creditStatus }}</td>
+          <td>{{ item.release_date }}</td>
+          <td>{{ item.estimate_invalid_date }}</td>
+        </tr>
+      </tbody>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <tbody>
+        <tr>
+          <td colspan="6">查無資料</td>
+        </tr>
+      </tbody>
+    </ng-template>
   </table>
 </div>

@@ -8,6 +8,7 @@ import {
   GetSearchPageRequest,
   GetSecondCategoryResponse,
   GetThirdCategoryResponse,
+  GetUserPageResponse,
 } from 'src/app/model/createGroup-model';
 
 @Component({
@@ -57,12 +58,13 @@ export class QuestionBeComponent implements OnInit {
 
     this._http.getSearchPage(req).subscribe((res) => {
       console.log(res);
+
       this.userPageItem = res;
     });
   }
 
   //*搜尋按鈕
-  userPageItem: any;
+  userPageItem: any = [];
   search() {
     this.getUserPageData();
   }
@@ -71,7 +73,6 @@ export class QuestionBeComponent implements OnInit {
   getUserPageData() {
     let thirdId = this.formBe.get('thirdSelect')?.value;
     this._http.getUserPage(thirdId).subscribe((res) => {
-      console.log(res);
       this.userPageItem = res;
     });
   }
@@ -110,13 +111,14 @@ export class QuestionBeComponent implements OnInit {
   }
 
   //*刪除
-  delete(param: string) {
+  del(param: string) {
     console.log('param', param, typeof param);
+    let paramStr = param.toString().trim();
+    // let req: DeleteSubjectRequest = {
+    //   id: paramStr,
+    // };
 
-    let req: DeleteSubjectRequest = {
-      subjectID: param,
-    };
-    this._http.deleteSubject(req).subscribe(
+    this._http.deleteSubject(paramStr).subscribe(
       (res) => {
         alert('刪除成功');
       },
