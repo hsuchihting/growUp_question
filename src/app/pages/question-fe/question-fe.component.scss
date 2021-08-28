@@ -56,31 +56,26 @@ $add: #fbc02d;
 
 .nav {
   margin-top: 5%;
-  width: 100%;
-  display: flex;
-
+  width: 33.3333%;
+border-bottom: 1px dashed #333;
   li {
-    width: 100%;
-    display: flex;
+    display: block;
     color: #333;
-    border-bottom: 1px dashed #333;
-    padding: 20px 0;
+    padding: 20px 10px;
     position: relative;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 1%;
-
-    span {
-      padding-left: 3%;
-    }
     &:hover,
     > li {
-      width: 100%;
-      // display: block;
       background-color: $add;
-      transition: all 0.3s;
-      color: #333;
+      transition: all 0.6s;
+    }
+    & + li::before {
+      content: "";
+      position: absolute;
+      border-top: 1px dashed #333;
+      left: 10px;
+      right: 10px;
+      top: 0px;
     }
     &:hover > ul {
       display: block;
@@ -88,11 +83,11 @@ $add: #fbc02d;
     ul {
       display: none;
       position: absolute;
-      top: 100%;
-      width: 100%;
-      // background-color: rgba(#d1d1d1, 0.7);
-      // bottom: 15px;
-      // box-shadow: 0px 5px 10px rgba(#171736, 0.6);
+      left: 100%;
+      width: 300px;
+      background-color: rgba(#eee, 0.7);
+      top: 15px;
+      box-shadow: 5px 5px 10px rgba(#333, 0.6);
     }
   }
 }

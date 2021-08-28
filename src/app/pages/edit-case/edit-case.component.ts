@@ -75,7 +75,6 @@ export class EditCaseComponent implements OnInit {
 
   getThirdDropdown() {
     let secondId = this.editForm.get('secondSelect')?.value;
-
     this._http.GetThirdCategory(secondId).subscribe((res) => {
       this.thirdSelectData = res;
     });

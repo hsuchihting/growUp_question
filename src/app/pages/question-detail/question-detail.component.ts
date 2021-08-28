@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-detail.component.scss'],
 })
 export class QuestionDetailComponent implements OnInit {
-  constructor(private _fb: FormBuilder, private _route: Router) {}
+  constructor(private _fb: FormBuilder, private _router: Router,private _route:ActivatedRoute) {}
   detailForm!: FormGroup;
+  seq: string | null = '';
   ngOnInit(): void {
+    this.seq = this._route.snapshot.paramMap.get('id');
     this.createForm();
+
   }
 
   createForm() {

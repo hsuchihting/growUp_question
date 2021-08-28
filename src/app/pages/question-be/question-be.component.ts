@@ -57,8 +57,6 @@ export class QuestionBeComponent implements OnInit {
     };
 
     this._http.getSearchPage(req).subscribe((res) => {
-      console.log(res);
-
       this.userPageItem = res;
     });
   }
@@ -113,14 +111,12 @@ export class QuestionBeComponent implements OnInit {
   //*刪除
   del(param: string) {
     console.log('param', param, typeof param);
-    let paramStr = param.toString().trim();
-    // let req: DeleteSubjectRequest = {
-    //   id: paramStr,
-    // };
+    let paramStr = param.trim();
 
     this._http.deleteSubject(paramStr).subscribe(
       (res) => {
         alert('刪除成功');
+        this.getSearchPage();
       },
       (err) => {
         alert('刪除失敗');
