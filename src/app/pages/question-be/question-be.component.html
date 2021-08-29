@@ -54,7 +54,7 @@
   <div class="timeGroup">
     <mat-form-field appearance="fill">
       <mat-label>起始日</mat-label>
-      <input matInput [matDatepicker]="sDate"  />
+      <input matInput [matDatepicker]="sDate" />
       <mat-datepicker-toggle matSuffix [for]="sDate"></mat-datepicker-toggle>
       <mat-datepicker #sDate></mat-datepicker>
     </mat-form-field>
@@ -88,8 +88,14 @@
       </tr>
     </thead>
     <ng-container *ngIf="userPageItem.length > 0; else elseTemplate">
-      <tbody>
-        <tr [id]="item.id" *ngFor="let item of userPageItem; let i = index">
+      <tbody
+        *ngFor="
+          let item of userPageItem
+            | paginate: { itemsPerPage: 5, currentPage: page };
+          let i = index
+        "
+      >
+        <tr [id]="item.id">
           <td>
             <div class="feature">
               <button
@@ -110,7 +116,7 @@
           </td>
           <td>{{ i + 1 }}</td>
           <td>{{ item.subject }}</td>
-          <td>{{ item.creditStatus }}</td>
+          <td>{{ this.status }}</td>
           <td>{{ item.release_date }}</td>
           <td>{{ item.estimate_invalid_date }}</td>
         </tr>
@@ -124,4 +130,11 @@
       </tbody>
     </ng-template>
   </table>
+  <div class="text-right mt-2">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel=""
+      nextLabel=""
+    ></pagination-controls>
+  </div>
 </div>

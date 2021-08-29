@@ -27,7 +27,7 @@ export class QuestionBeComponent implements OnInit {
 
   //*子分類下拉選單
   thirdSelectData: GetThirdCategoryResponse[] = [];
-
+  page: number = 1;
   constructor(
     private _fb: FormBuilder,
     private _router: Router,
@@ -49,7 +49,7 @@ export class QuestionBeComponent implements OnInit {
       creditStatus: '',
     });
   }
-
+  status: string | undefined = '';
   getSearchPage() {
     let param = this.formBe.getRawValue();
     let req: GetSearchPageRequest = {
@@ -58,7 +58,25 @@ export class QuestionBeComponent implements OnInit {
 
     this._http.getSearchPage(req).subscribe((res) => {
       this.userPageItem = res;
+      this.userPageItem.forEach((item: any) => {
+        console.log(item);
+        this.status = this.creditStatusChange(item.creditStatus);
+      });
     });
+  }
+
+  creditStatusChange(status: any) {
+    let creditStatus = '';
+    switch (status) {
+      case 0:
+        return (creditStatus = '已審核');
+      case 1:
+        return (creditStatus = '未審核');
+      case 2:
+        return (creditStatus = '審核中');
+      default:
+        return;
+    }
   }
 
   //*搜尋按鈕

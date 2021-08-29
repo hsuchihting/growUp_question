@@ -20,7 +20,7 @@ export interface GetThirdCategoryRequest {
 
 export interface GetThirdCategoryResponse {
   thirdID: string;
-  thirdgroupname: string;
+  thirdgroupname?: string;
 }
 
 //*新增群組

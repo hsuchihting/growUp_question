@@ -13,6 +13,7 @@ import { QuestionDetailComponent } from './pages/question-detail/question-detail
 import { AddCaseComponent } from './pages/add-case/add-case.component';
 import { EditCaseComponent } from './pages/edit-case/edit-case.component';
 import { AddTypeComponent } from './pages/add-type/add-type.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, QuestionFeComponent, QuestionBeComponent, QuestionDetailComponent, AddCaseComponent, EditCaseComponent, AddTypeComponent],
@@ -24,6 +25,7 @@ import { AddTypeComponent } from './pages/add-type/add-type.component';
     ShareModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
