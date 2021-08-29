@@ -15,26 +15,24 @@
 </form>
 
 <hr />
-<ul class="questionList">
-  <h2 class="qTitle">問題 TOP5</h2>
-  <hr />
-  <li>問題1</li>
-  <li>問題2</li>
-  <li>問題3</li>
-  <li>問題4</li>
-  <li>問題5</li>
-</ul>
+<h2 class="qTitle">問題 TOP5</h2>
 
-<div class="item">
-  <details>
-    <summary>問題</summary>
-    <div class="answer">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet est
-        magnam quisquam, temporibus, nemo amet corporis nulla laborum esse et
-        tempore odio ipsum, libero voluptatum soluta alias harum exercitationem.
-        Modi?
-      </p>
-    </div>
-  </details>
-</div>
+<ng-container *ngFor="let item of getQueAnsItem">
+  <ul class="questionList">
+    <hr />
+    <li>{{ item.subject }}</li>
+  </ul>
+</ng-container>
+
+<ng-container *ngFor="let item of getQueAnsItem; let i = index">
+  <div class="item">
+    <details [open]="i === 0">
+      <summary>{{ item.subject }}</summary>
+      <div class="answer">
+        <p>
+          {{ item.answer }}
+        </p>
+      </div>
+    </details>
+  </div>
+</ng-container>

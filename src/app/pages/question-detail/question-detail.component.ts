@@ -19,13 +19,14 @@ export class QuestionDetailComponent implements OnInit {
   detailForm!: FormGroup;
   seq: any = '';
   //*子分類下拉選單
-  thirdSelectData: any = [];
+  getQueAnsItem: any = [];
+
   ngOnInit(): void {
     this.seq = this._route.snapshot.paramMap.get('id');
     console.log(this.seq);
 
     this.createForm();
-    this.getThirdDropdown();
+    this.getSubjectPage();
   }
 
   createForm() {
@@ -35,11 +36,12 @@ export class QuestionDetailComponent implements OnInit {
     });
   }
 
-  //*第三個下拉選單
-  getThirdDropdown() {
-    let param = this.seq?.toString();
+  //*取得該筆問答
+  getSubjectPage() {
+    let param = this.seq;
     this._http.getSubjectPage(param).subscribe((res) => {
-      this.thirdSelectData = res;
+      this.getQueAnsItem = res;
+      console.log(res);
     });
   }
 
